@@ -1,16 +1,16 @@
 import PropertyDetailClient from "@/components/PropertyDetailClient";
 import { getSingleHome } from "@/dal/homes";
 
-export default async function Page({
-  params,
-}: {
+type PropertyDetailPageProps = Readonly<{
   params: Promise<{ id: string }>;
-}) {
+}>;
+
+export default async function Page({ params }: PropertyDetailPageProps) {
   const { id } = await params;
-  const featuredHome = await getSingleHome(id);
-  const maptoken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN as string;
+  const property = await getSingleHome(id);
+  const mapToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 
   return (
-    <PropertyDetailClient featuredHome={featuredHome} maptoken={maptoken} />
+    <PropertyDetailClient property={property} mapToken={mapToken} />
   );
 }
