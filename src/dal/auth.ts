@@ -1,5 +1,5 @@
 const AUTH_ENDPOINT = "https://dinmaegler.onrender.com/auth/local";
-const REGISTER_ENDPOINT = "https://dinmaegler.onrender.com/auth/register";
+const REGISTER_ENDPOINT = "https://dinmaegler.onrender.com/auth/local/register";
 
 type AuthUser = {
   id: number;
@@ -13,7 +13,7 @@ type LoginResponse = {
 };
 
 type RegisterPayload = {
-  fullName: string;
+  username: string;
   email: string;
   password: string;
 };
@@ -59,12 +59,14 @@ export async function registerUser(payload: RegisterPayload): Promise<RegisterRe
     },
     cache: "no-store",
     body: JSON.stringify({
-      username: payload.fullName,
+      username: payload.username,
       email: payload.email,
       identifier: payload.email,
       password: payload.password,
     }),
   });
+
+  console.log("response: ", response);
 
   return parseResponse<RegisterResponse>(response);
 }

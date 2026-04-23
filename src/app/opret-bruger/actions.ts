@@ -9,13 +9,13 @@ export type RegisterActionState = {
   success: boolean;
   formError: string | null;
   fieldErrors: {
-    fullName: string | null;
+    username: string | null;
     email: string | null;
     password: string | null;
     confirmPassword: string | null;
   };
   values: {
-    fullName: string;
+    username: string;
     email: string;
     password: string;
     confirmPassword: string;
@@ -31,7 +31,7 @@ export async function registerAction(
   formData: FormData,
 ): Promise<RegisterActionState> {
   const values = {
-    fullName: getFormStringValue(formData.get("fullName")),
+    username: getFormStringValue(formData.get("username")),
     email: getFormStringValue(formData.get("email")),
     password: getFormStringValue(formData.get("password")),
     confirmPassword: getFormStringValue(formData.get("confirmPassword")),
@@ -46,7 +46,7 @@ export async function registerAction(
       success: false,
       formError: null,
       fieldErrors: {
-        fullName: fieldErrors.fullName?.[0] ?? null,
+        username: fieldErrors.username?.[0] ?? null,
         email: fieldErrors.email?.[0] ?? null,
         password: fieldErrors.password?.[0] ?? null,
         confirmPassword: fieldErrors.confirmPassword?.[0] ?? null,
@@ -57,7 +57,7 @@ export async function registerAction(
 
   try {
     await registerUser({
-      fullName: parsed.data.fullName,
+      username: parsed.data.username,
       email: parsed.data.email,
       password: parsed.data.password,
     });
@@ -66,7 +66,7 @@ export async function registerAction(
       success: false,
       formError: "Kunne ikke oprette bruger. Prøv igen.",
       fieldErrors: {
-        fullName: null,
+        username: null,
         email: null,
         password: null,
         confirmPassword: null,

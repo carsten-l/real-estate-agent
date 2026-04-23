@@ -7,7 +7,7 @@ export const loginSchema = z.object({
 
 export const registerSchema = z
   .object({
-    fullName: z.string().trim().min(2, "Fulde navn er påkrævet."),
+    username: z.string().trim().min(2, "Brugernavn er påkrævet."),
     email: z.string().trim().email("Indtast en gyldig emailadresse."),
     password: z.string().min(6, "Password skal være mindst 6 tegn."),
     confirmPassword: z.string().min(1, "Bekræft password er påkrævet."),

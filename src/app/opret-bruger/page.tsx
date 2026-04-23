@@ -9,13 +9,13 @@ const initialRegisterActionState: RegisterActionState = {
   success: false,
   formError: null,
   fieldErrors: {
-    fullName: null,
+    username: null,
     email: null,
     password: null,
     confirmPassword: null,
   },
   values: {
-    fullName: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -34,20 +34,20 @@ export default function RegisterPage() {
           </h1>
 
           <form className="mx-auto max-w-xl" action={formAction} noValidate>
-            <label className="mb-2 block text-lg text-[#333]" htmlFor="fullName">
-              Fulde navn
+            <label className="mb-2 block text-lg text-[#333]" htmlFor="username">
+              Brugernavn
             </label>
             <input
               className="mb-2 w-full border border-gray-300 px-4 py-3 text-lg outline-none transition focus:border-primary"
-              id="fullName"
-              name="fullName"
+              id="username"
+              name="username"
               type="text"
-              placeholder="Fulde navn"
-              autoComplete="name"
-              defaultValue={state.values.fullName}
+              placeholder="Brugernavn"
+              autoComplete="username"
+              defaultValue={state.values.username}
             />
-            {state.fieldErrors.fullName ? (
-              <p className="mb-4 text-sm text-red-700">{state.fieldErrors.fullName}</p>
+            {state.fieldErrors.username ? (
+              <p className="mb-4 text-sm text-red-700">{state.fieldErrors.username}</p>
             ) : (
               <div className="mb-6" />
             )}
