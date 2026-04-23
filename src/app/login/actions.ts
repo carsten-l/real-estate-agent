@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { z } from "zod";
+import { loginSchema } from "@/lib/schemas/auth";
 
 import { login } from "@/dal/auth";
 
@@ -10,11 +10,6 @@ const AUTH_TOKEN_COOKIE_KEY = "dinmaegler_auth_token";
 const AUTH_USER_ID_COOKIE_KEY = "dinmaegler_auth_user_id";
 const AUTH_USERNAME_COOKIE_KEY = "dinmaegler_auth_username";
 const TOKEN_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
-
-const loginSchema = z.object({
-  identifier: z.string().trim().email("Indtast en gyldig emailadresse."),
-  password: z.string().min(1, "Password er påkrævet."),
-});
 
 type LoginActionState = {
   success: boolean;
