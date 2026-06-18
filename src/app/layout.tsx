@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
+import { Suspense } from "react";
 import "./globals.css";
 import FooterIconGroup from "@/components/FooterIconGroup";
 import { IoMdCall } from "react-icons/io";
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         <main>
           {children}
         </main>
