@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { loginSchema } from "@/lib/schemas/auth";
 
-import { login } from "@/dal/auth";
+import { login } from "@/data/auth";
 
 const AUTH_TOKEN_COOKIE_KEY = "dinmaegler_auth_token";
 const AUTH_USER_ID_COOKIE_KEY = "dinmaegler_auth_user_id";

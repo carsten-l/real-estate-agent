@@ -1,6 +1,6 @@
 import AgentCard from "@/components/AgentCard";
 import { HeadlineRibbon } from "@/components/HeadlineRibbon";
-import { getAllAgents } from "@/dal/agents";
+import { getAllAgents } from "@/data/agents";
 
 export default async function AgentsPage() {
   const agents = await getAllAgents();

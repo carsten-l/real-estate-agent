@@ -1,6 +1,6 @@
 import PropertyCard from "@/components/PropertyCard";
 import { HeadlineRibbon } from "@/components/HeadlineRibbon";
-import { getAllHomes } from "@/dal/homes";
+import { getAllHomes } from "@/data/homes";
 
 export default async function HomesPage() {
   const homes = await getAllHomes();

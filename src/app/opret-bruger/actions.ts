@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-import { registerUser } from "@/dal/auth";
+import { registerUser } from "@/data/auth";
 import { registerSchema } from "@/lib/schemas/auth";
 
 export type RegisterActionState = {

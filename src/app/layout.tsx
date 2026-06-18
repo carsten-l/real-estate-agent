@@ -1,15 +1,12 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { FaPaperPlane, FaPhoneAlt, FaUser } from "react-icons/fa";
-import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
 import FooterIconGroup from "@/components/FooterIconGroup";
 import { IoMdCall } from "react-icons/io";
 import { IoMdPaperPlane } from "react-icons/io";
 import { IoMdPin } from "react-icons/io";
-
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,34 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
-          <div className="bg-primary text-white p-3">
-            <div className="container mx-auto flex justify-between">
-          <div className="left-group items-center gap-2 flex"><FaPaperPlane /> 4000@dinmaegler.com <FaPhoneAlt className="ml-4" />+45 7070 4000  </div> 
-          <Link
-							href="/login"
-							className="flex gap-2 items-center"
-						>
-							<FaUser />log ind
-						</Link>
-            </div>
-          </div>
-          <div className="p-4">
-              <div className="container mx-auto flex justify-between">
-              <Link href="/">
-                    <Image src={"/din_maegler_logo.png"} width={296} height={49} alt="Din Mægler" />
-              </Link>
-              <nav className="flex items-end sm:hidden">
-                <button className="text-3xl" >&#9776;</button>
-              </nav>
-                <nav className="gap-8 items-end hidden sm:flex">
-                  <Link href="/boliger">Boliger til salg</Link>
-                  <Link href="/maeglere">Mæglere</Link>
-                  <Link href="/kontakt">Kontakt os</Link>
-                </nav>
-              </div>
-          </div>
-        </header>
+        <Header />
         <main>
           {children}
         </main>
@@ -108,7 +78,7 @@ export default function RootLayout({
             </div>
           </div>
           <div>
-            <p className="p-2 bg-primary text-white text-center text-balance">© 2021 Din Mægler</p>
+            <p className="p-2 bg-primary text-white text-center text-balance">© 2026 Din Mægler</p>
           </div>
         </footer>
       </body>

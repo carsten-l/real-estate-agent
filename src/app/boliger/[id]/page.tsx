@@ -1,5 +1,5 @@
 import PropertyDetailClient from "@/components/PropertyDetailClient";
-import { getSingleHome } from "@/dal/homes";
+import { getSingleHome } from "@/data/homes";
 
 type PropertyDetailPageProps = Readonly<{
   params: Promise<{ id: string }>;

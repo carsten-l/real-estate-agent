@@ -1,6 +1,6 @@
 import AgentCard from "@/components/AgentCard";
 import Link from "next/link";
-import { getFeaturedAgents } from "@/dal/agents";
+import { getFeaturedAgents } from "@/data/agents";
 
 export default async function FeaturedAgents() {
   const agents = await getFeaturedAgents();

@@ -1,13 +1,14 @@
+import Link from "next/link";
 import PropertyCard from "./PropertyCard";
-import { getFeaturedHomes } from "@/dal/homes";
+import { getFeaturedHomes } from "@/data/homes";
 
 export default async function FeaturedHomes() {
   const featuredHomes = await getFeaturedHomes();
 
   return (
     <section className="px-3 py-24">
-      <div className="container mx-auto px-4 md:px-12">
-        <h2 className="text-center text-4xl font-bold mb-4">
+      <div className="container mx-auto text-center px-4 md:px-12">
+        <h2 className="text-4xl font-bold mb-4">
           Udvalgte boliger
         </h2>
         <p className="text-center mb-6">
@@ -20,7 +21,13 @@ export default async function FeaturedHomes() {
             <PropertyCard data={featuredHome} key={featuredHome.id} />
           ))}
         </div>
-      </div>
+       <Link
+          href="/boliger"
+          className="bg-primary text-white py-2 px-6 mt-8 inline-block"
+          >
+          Se alle boliger
+        </Link>
+        </div>
     </section>
   );
 }
